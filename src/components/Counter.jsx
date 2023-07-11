@@ -6,25 +6,14 @@ import { useState } from "react";
 import styles from "./Counter.module.css";
 
 export const Counter = (props) => {
-  const [value, setValue] = useState(0);
-
-  const handleAdd = () => {
-    setValue(value + 1);
-  };
-
-  const handleMinus = () => {
-    if (value <= 0) return;
-    setValue(value - 1);
-  };
-
   return (
     <div className={styles.wrapper}>
       <Text>
-        {value} {props.text}
+        {props.count} {props.text}
       </Text>
       <nav>
-        <IconMinus onClick={handleMinus} />
-        <IconAdd onClick={handleAdd} />
+        <IconMinus onClick={props.onMinus} />
+        <IconAdd onClick={props.onAdd} />
       </nav>
     </div>
   );
